@@ -68,7 +68,7 @@ svg {
   display: grid;
   place-items: center;
   color: var(--ink);
-  background: #050403;
+  background: #2a1a10;
   overscroll-behavior: none;
   opacity: 1;
   visibility: visible;
