@@ -155,7 +155,7 @@ body.is-ready .footer p {
 }
 
 .loader-content {
-  width: min(86vw, 680px);
+  width: min(92vw, 940px);
   display: grid;
   justify-items: center;
   text-align: center;
@@ -166,7 +166,7 @@ body.is-ready .footer p {
   margin: 0;
   color: #fff8ef;
   font-family: var(--serif);
-  font-size: clamp(2.8rem, 7.2vw, 5.35rem);
+  font-size: clamp(3rem, 9.4vw, 7.6rem);
   font-weight: 500;
   line-height: 1;
 }
@@ -174,7 +174,7 @@ body.is-ready .footer p {
 .loader-role {
   margin: clamp(14px, 1.5vw, 18px) 0 0;
   color: var(--gold);
-  font-size: clamp(0.72rem, 1.2vw, 1rem);
+  font-size: clamp(0.72rem, 1.32vw, 1.14rem);
   font-weight: 600;
   letter-spacing: 0.42em;
   text-indent: 0.42em;
@@ -183,7 +183,7 @@ body.is-ready .footer p {
 
 .loader-line {
   position: relative;
-  width: min(100%, 300px);
+  width: min(100%, 380px);
   height: 1px;
   margin-top: clamp(30px, 3vw, 40px);
   overflow: hidden;
@@ -498,6 +498,22 @@ h1 {
 }
 
 @media (max-width: 700px) {
+  .loader-content {
+    width: min(84vw, 360px);
+  }
+
+  .loader-name {
+    font-size: clamp(2.8rem, 12vw, 3.45rem);
+  }
+
+  .loader-role {
+    font-size: clamp(0.68rem, 3vw, 0.78rem);
+  }
+
+  .loader-line {
+    width: min(100%, 250px);
+  }
+
   .hazelink {
     width: 100%;
     min-height: 100vh;
