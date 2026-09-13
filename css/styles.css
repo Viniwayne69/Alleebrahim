@@ -59,9 +59,7 @@ svg {
   display: grid;
   place-items: center;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 50% 38%, rgba(95, 63, 33, 0.18), transparent 36%),
-    linear-gradient(180deg, #100c08 0%, #050403 100%);
+  background: #050403;
   opacity: 1;
   visibility: visible;
   transition:
@@ -157,7 +155,7 @@ body.is-ready .footer p {
 }
 
 .loader-content {
-  width: min(78vw, 330px);
+  width: min(86vw, 680px);
   display: grid;
   justify-items: center;
   text-align: center;
@@ -168,15 +166,15 @@ body.is-ready .footer p {
   margin: 0;
   color: #fff8ef;
   font-family: var(--serif);
-  font-size: clamp(2.2rem, 8vw, 3.05rem);
+  font-size: clamp(2.8rem, 7.2vw, 5.35rem);
   font-weight: 500;
   line-height: 1;
 }
 
 .loader-role {
-  margin: 12px 0 0;
+  margin: clamp(14px, 1.5vw, 18px) 0 0;
   color: var(--gold);
-  font-size: 0.72rem;
+  font-size: clamp(0.72rem, 1.2vw, 1rem);
   font-weight: 600;
   letter-spacing: 0.42em;
   text-indent: 0.42em;
@@ -185,9 +183,9 @@ body.is-ready .footer p {
 
 .loader-line {
   position: relative;
-  width: min(100%, 230px);
+  width: min(100%, 300px);
   height: 1px;
-  margin-top: 32px;
+  margin-top: clamp(30px, 3vw, 40px);
   overflow: hidden;
   background: rgba(244, 210, 154, 0.24);
 }
