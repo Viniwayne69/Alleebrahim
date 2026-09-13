@@ -112,11 +112,11 @@ function hideLoader() {
   }
 
   loader.classList.add("is-hidden");
-  document.body.classList.remove("is-loading");
-  document.body.classList.add("is-ready");
 
   window.setTimeout(() => {
     loader.remove();
+    document.body.classList.remove("is-loading");
+    document.body.classList.add("is-ready");
   }, 700);
 }
 
