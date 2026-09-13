@@ -7,7 +7,7 @@ const links = [
   {
     title: "WhatsApp",
     icon: "whatsapp",
-    href: "https://wa.me/558197207696?text=Oi,%20All%C3%AA.%20Vim%20pelo%20Hazelink%20e%20quero%20saber%20mais%20sobre%20consultoria%20e%20treinamentos."
+    href: "https://wa.me/558197207696?text=Oi%20All%C3%AA!%20quero%20saber%20mais%20sobre%20a%20consultoria%20e%20treinamentos"
   },
   {
     title: "Treinamentos",
