@@ -67,7 +67,13 @@ svg {
 }
 
 .background {
-  background: url("../assets/cafe-background.png") center top / cover no-repeat;
+  background:
+    image-set(
+      url("../assets/cafe-background.webp") type("image/webp"),
+      url("../assets/cafe-background.jpg") type("image/jpeg"),
+      url("../assets/cafe-background.png") type("image/png")
+    )
+    center top / cover no-repeat;
 }
 
 .shade {
