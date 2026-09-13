@@ -31,6 +31,10 @@ body {
   overflow-x: hidden;
 }
 
+body.is-loading {
+  overflow: hidden;
+}
+
 a,
 button {
   font: inherit;
@@ -46,6 +50,161 @@ svg {
   height: 100%;
   display: block;
   fill: currentColor;
+}
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 50% 38%, rgba(95, 63, 33, 0.18), transparent 36%),
+    linear-gradient(180deg, #100c08 0%, #050403 100%);
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 650ms ease,
+    visibility 650ms ease;
+}
+
+.loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body:not(.is-ready) h1,
+body:not(.is-ready) .role,
+body:not(.is-ready) .subtitle,
+body:not(.is-ready) .agenda-pill span:last-child,
+body:not(.is-ready) .pillar span:last-child,
+body:not(.is-ready) .link-title,
+body:not(.is-ready) .footer p {
+  opacity: 0;
+}
+
+body.is-ready h1,
+body.is-ready .subtitle,
+body.is-ready .agenda-pill span:last-child,
+body.is-ready .pillar span:last-child,
+body.is-ready .link-title,
+body.is-ready .footer p {
+  animation: text-gather 780ms cubic-bezier(0.2, 0.85, 0.22, 1) both;
+}
+
+body.is-ready .role {
+  animation: text-settle 780ms cubic-bezier(0.2, 0.85, 0.22, 1) 90ms both;
+}
+
+body.is-ready .subtitle {
+  animation-delay: 170ms;
+}
+
+body.is-ready .agenda-pill span:last-child {
+  animation-delay: 250ms;
+}
+
+body.is-ready .pillar span:last-child {
+  animation-delay: 340ms;
+}
+
+body.is-ready .link-title {
+  animation-delay: 430ms;
+}
+
+body.is-ready .footer p {
+  animation-delay: 540ms;
+}
+
+@keyframes text-gather {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(18px) scale(1.025);
+  }
+
+  68% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes text-settle {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(16px) scale(1.02);
+  }
+
+  68% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+.loader-content {
+  width: min(78vw, 330px);
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  transform: translateY(-10px);
+}
+
+.loader-name {
+  margin: 0;
+  color: #fff8ef;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 8vw, 3.05rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.loader-role {
+  margin: 12px 0 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  text-transform: uppercase;
+}
+
+.loader-line {
+  position: relative;
+  width: min(100%, 230px);
+  height: 1px;
+  margin-top: 32px;
+  overflow: hidden;
+  background: rgba(244, 210, 154, 0.24);
+}
+
+.loader-line::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  content: "";
+  transform: translateX(-100%);
+  animation: loader-progress 3000ms ease forwards;
+}
+
+@keyframes loader-progress {
+  to {
+    transform: translateX(100%);
+  }
 }
 
 .hazelink {
@@ -477,7 +636,18 @@ h1 {
   *,
   *::before,
   *::after {
+    animation-duration: 1ms !important;
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
+  }
+
+  body:not(.is-ready) h1,
+  body:not(.is-ready) .role,
+  body:not(.is-ready) .subtitle,
+  body:not(.is-ready) .agenda-pill span:last-child,
+  body:not(.is-ready) .pillar span:last-child,
+  body:not(.is-ready) .link-title,
+  body:not(.is-ready) .footer p {
+    opacity: 1;
   }
 }

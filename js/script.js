@@ -52,7 +52,10 @@ const icons = {
 const linksContainer = document.querySelector("[data-links]");
 const pillarsContainer = document.querySelector("[data-pillars]");
 const toast = document.querySelector("[data-toast]");
+const loader = document.querySelector("[data-loader]");
 const agendaPillIcon = document.querySelector("[data-icon='calendar']");
+const loaderStart = performance.now();
+const loaderMinimumTime = 3000;
 let toastTimer;
 
 function icon(name) {
@@ -101,4 +104,25 @@ document.querySelectorAll("[data-label]").forEach((link) => {
     event.preventDefault();
     showToast(`${link.getAttribute("data-label")} será conectado ao link oficial.`);
   });
+});
+
+function hideLoader() {
+  if (!loader) {
+    return;
+  }
+
+  loader.classList.add("is-hidden");
+  document.body.classList.remove("is-loading");
+  document.body.classList.add("is-ready");
+
+  window.setTimeout(() => {
+    loader.remove();
+  }, 700);
+}
+
+window.addEventListener("load", () => {
+  const elapsedTime = performance.now() - loaderStart;
+  const remainingTime = Math.max(0, loaderMinimumTime - elapsedTime);
+
+  window.setTimeout(hideLoader, remainingTime);
 });
